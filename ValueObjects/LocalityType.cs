@@ -1,7 +1,16 @@
 ﻿namespace ApplicantAccounting.ValueObjects;
 
-public enum LocalityType
+public static class LocalityType
 {
-    City = 0,
-    Village = 1,
+    public const int City = 0;
+    public const int Village = 1;
+
+    public static Dictionary<int, string> GetAll()
+    {
+        return new Dictionary<int, string>()
+        {
+            { City, "Місто" },
+            { Village, "Село" },
+        };
+    }
 }

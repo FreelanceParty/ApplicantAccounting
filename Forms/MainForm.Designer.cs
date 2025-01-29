@@ -78,27 +78,27 @@ partial class MainForm
         // 
         groupBox1.Controls.Add(editRecordButton);
         groupBox1.Controls.Add(newRecordButton);
-        groupBox1.Location = new System.Drawing.Point(31, 47);
+        groupBox1.Location = new System.Drawing.Point(12, 75);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(282, 152);
+        groupBox1.Size = new System.Drawing.Size(282, 75);
         groupBox1.TabIndex = 1;
         groupBox1.TabStop = false;
         groupBox1.Text = "groupBox1";
         // 
         // editRecordButton
         // 
-        editRecordButton.Location = new System.Drawing.Point(45, 91);
+        editRecordButton.Location = new System.Drawing.Point(140, 26);
         editRecordButton.Name = "editRecordButton";
-        editRecordButton.Size = new System.Drawing.Size(163, 35);
+        editRecordButton.Size = new System.Drawing.Size(112, 35);
         editRecordButton.TabIndex = 1;
         editRecordButton.Text = "Редагувати запис";
         editRecordButton.UseVisualStyleBackColor = true;
         // 
         // newRecordButton
         // 
-        newRecordButton.Location = new System.Drawing.Point(45, 51);
+        newRecordButton.Location = new System.Drawing.Point(22, 26);
         newRecordButton.Name = "newRecordButton";
-        newRecordButton.Size = new System.Drawing.Size(163, 35);
+        newRecordButton.Size = new System.Drawing.Size(112, 35);
         newRecordButton.TabIndex = 0;
         newRecordButton.Text = "Новий запис";
         newRecordButton.UseVisualStyleBackColor = true;
@@ -109,9 +109,9 @@ partial class MainForm
         statisticsGroupBox.Controls.Add(comboBox1);
         statisticsGroupBox.Controls.Add(dataGridView1);
         statisticsGroupBox.Controls.Add(textBox1);
-        statisticsGroupBox.Location = new System.Drawing.Point(31, 205);
+        statisticsGroupBox.Location = new System.Drawing.Point(12, 361);
         statisticsGroupBox.Name = "statisticsGroupBox";
-        statisticsGroupBox.Size = new System.Drawing.Size(282, 219);
+        statisticsGroupBox.Size = new System.Drawing.Size(604, 301);
         statisticsGroupBox.TabIndex = 2;
         statisticsGroupBox.TabStop = false;
         statisticsGroupBox.Text = "Статистика";
@@ -132,7 +132,7 @@ partial class MainForm
         dataGridView1.Location = new System.Drawing.Point(6, 77);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new System.Drawing.Size(270, 136);
+        dataGridView1.Size = new System.Drawing.Size(592, 218);
         dataGridView1.TabIndex = 4;
         // 
         // textBox1
@@ -203,16 +203,17 @@ partial class MainForm
         // 
         // showButton
         // 
-        showButton.Location = new System.Drawing.Point(201, 342);
+        showButton.Location = new System.Drawing.Point(513, 162);
         showButton.Name = "showButton";
         showButton.Size = new System.Drawing.Size(85, 25);
         showButton.TabIndex = 22;
         showButton.Text = "Показати";
         showButton.UseVisualStyleBackColor = true;
+        showButton.Click += showButton_Click;
         // 
         // label3
         // 
-        label3.Location = new System.Drawing.Point(6, 216);
+        label3.Location = new System.Drawing.Point(318, 36);
         label3.Name = "label3";
         label3.Size = new System.Drawing.Size(100, 23);
         label3.TabIndex = 23;
@@ -220,7 +221,7 @@ partial class MainForm
         // 
         // label6
         // 
-        label6.Location = new System.Drawing.Point(6, 281);
+        label6.Location = new System.Drawing.Point(318, 101);
         label6.Name = "label6";
         label6.Size = new System.Drawing.Size(100, 23);
         label6.TabIndex = 24;
@@ -228,7 +229,7 @@ partial class MainForm
         // 
         // label7
         // 
-        label7.Location = new System.Drawing.Point(6, 314);
+        label7.Location = new System.Drawing.Point(318, 134);
         label7.Name = "label7";
         label7.Size = new System.Drawing.Size(100, 23);
         label7.TabIndex = 25;
@@ -236,7 +237,7 @@ partial class MainForm
         // 
         // label8
         // 
-        label8.Location = new System.Drawing.Point(6, 348);
+        label8.Location = new System.Drawing.Point(318, 168);
         label8.Name = "label8";
         label8.Size = new System.Drawing.Size(100, 23);
         label8.TabIndex = 26;
@@ -261,16 +262,16 @@ partial class MainForm
         groupBox2.Controls.Add(groupBox3);
         groupBox2.Controls.Add(label2);
         groupBox2.Controls.Add(lastNameInput);
-        groupBox2.Location = new System.Drawing.Point(320, 47);
+        groupBox2.Location = new System.Drawing.Point(12, 156);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new System.Drawing.Size(298, 377);
+        groupBox2.Size = new System.Drawing.Size(606, 199);
         groupBox2.TabIndex = 3;
         groupBox2.TabStop = false;
         groupBox2.Text = "Вибірка";
         // 
         // fbRadio
         // 
-        fbRadio.Location = new System.Drawing.Point(230, 235);
+        fbRadio.Location = new System.Drawing.Point(542, 55);
         fbRadio.Name = "fbRadio";
         fbRadio.Size = new System.Drawing.Size(62, 24);
         fbRadio.TabIndex = 35;
@@ -280,7 +281,7 @@ partial class MainForm
         // 
         // ptbRadio
         // 
-        ptbRadio.Location = new System.Drawing.Point(162, 235);
+        ptbRadio.Location = new System.Drawing.Point(474, 55);
         ptbRadio.Name = "ptbRadio";
         ptbRadio.Size = new System.Drawing.Size(62, 24);
         ptbRadio.TabIndex = 34;
@@ -290,7 +291,7 @@ partial class MainForm
         // 
         // grsRadio
         // 
-        grsRadio.Location = new System.Drawing.Point(95, 235);
+        grsRadio.Location = new System.Drawing.Point(407, 55);
         grsRadio.Name = "grsRadio";
         grsRadio.Size = new System.Drawing.Size(62, 24);
         grsRadio.TabIndex = 33;
@@ -300,7 +301,7 @@ partial class MainForm
         // 
         // mgRadio
         // 
-        mgRadio.Location = new System.Drawing.Point(230, 211);
+        mgRadio.Location = new System.Drawing.Point(542, 31);
         mgRadio.Name = "mgRadio";
         mgRadio.Size = new System.Drawing.Size(62, 24);
         mgRadio.TabIndex = 32;
@@ -310,7 +311,7 @@ partial class MainForm
         // 
         // mtRadio
         // 
-        mtRadio.Location = new System.Drawing.Point(162, 211);
+        mtRadio.Location = new System.Drawing.Point(474, 31);
         mtRadio.Name = "mtRadio";
         mtRadio.Size = new System.Drawing.Size(62, 24);
         mtRadio.TabIndex = 31;
@@ -320,7 +321,7 @@ partial class MainForm
         // 
         // kiRado
         // 
-        kiRado.Location = new System.Drawing.Point(95, 211);
+        kiRado.Location = new System.Drawing.Point(407, 31);
         kiRado.Name = "kiRado";
         kiRado.Size = new System.Drawing.Size(62, 24);
         kiRado.TabIndex = 30;
@@ -330,7 +331,7 @@ partial class MainForm
         // 
         // benefitsRadio
         // 
-        benefitsRadio.Location = new System.Drawing.Point(95, 343);
+        benefitsRadio.Location = new System.Drawing.Point(407, 163);
         benefitsRadio.Name = "benefitsRadio";
         benefitsRadio.Size = new System.Drawing.Size(62, 24);
         benefitsRadio.TabIndex = 29;
@@ -340,7 +341,7 @@ partial class MainForm
         // 
         // dormitoryRadio
         // 
-        dormitoryRadio.Location = new System.Drawing.Point(92, 276);
+        dormitoryRadio.Location = new System.Drawing.Point(404, 96);
         dormitoryRadio.Name = "dormitoryRadio";
         dormitoryRadio.Size = new System.Drawing.Size(62, 24);
         dormitoryRadio.TabIndex = 28;
@@ -350,7 +351,7 @@ partial class MainForm
         // 
         // coursesRadio
         // 
-        coursesRadio.Location = new System.Drawing.Point(95, 309);
+        coursesRadio.Location = new System.Drawing.Point(407, 129);
         coursesRadio.Name = "coursesRadio";
         coursesRadio.Size = new System.Drawing.Size(62, 24);
         coursesRadio.TabIndex = 27;
@@ -362,7 +363,7 @@ partial class MainForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(652, 451);
+        ClientSize = new System.Drawing.Size(630, 671);
         Controls.Add(groupBox2);
         Controls.Add(statisticsGroupBox);
         Controls.Add(groupBox1);
