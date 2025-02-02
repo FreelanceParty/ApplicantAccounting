@@ -3,22 +3,15 @@ using Bogus;
 
 namespace ApplicantAccounting.Models.Seeders;
 
-public class RecordSeeder
+public class RecordSeeder(AppDbContext context)
 {
-    private readonly AppDbContext _context;
-
-    public RecordSeeder(AppDbContext context)
-    {
-        _context = context;
-    }
-
     public void Seed(int count)
     {
-        if (!_context.Records.Any())
+        if (!context.Records.Any())
         {
             var records = CreateMany(count);
-            _context.Records.AddRange(records);
-            _context.SaveChanges();
+            context.Records.AddRange(records);
+            context.SaveChanges();
         }
     }
 
@@ -33,7 +26,7 @@ public class RecordSeeder
             Address = faker.Address.StreetAddress(),
             GenderTypeId = faker.Random.Int(0, GenderType.GetAll().Count - 1),
             EducationTypeId = faker.Random.Int(0, EducationType.GetAll().Count - 1),
-            LocalityTypeId = faker.Random.Int(0, LocalityType.GetAll().Count - 1),
+            Locality = faker.Address.City(),
             Benefits = faker.Random.Bool(),
             Courses = faker.Random.Bool(),
             Dormitory = faker.Random.Bool(),

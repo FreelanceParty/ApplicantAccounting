@@ -61,6 +61,8 @@ partial class MainForm
         benefitsRadio = new System.Windows.Forms.RadioButton();
         dormitoryRadio = new System.Windows.Forms.RadioButton();
         coursesRadio = new System.Windows.Forms.RadioButton();
+        printButton = new System.Windows.Forms.Button();
+        excelButton = new System.Windows.Forms.Button();
         groupBox1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)recordIdInput).BeginInit();
         statisticsGroupBox.SuspendLayout();
@@ -128,6 +130,8 @@ partial class MainForm
         // 
         // statisticsGroupBox
         // 
+        statisticsGroupBox.Controls.Add(excelButton);
+        statisticsGroupBox.Controls.Add(printButton);
         statisticsGroupBox.Controls.Add(comboBox1);
         statisticsGroupBox.Controls.Add(dataGridView1);
         statisticsGroupBox.Controls.Add(textBox1);
@@ -383,6 +387,25 @@ partial class MainForm
         coursesRadio.Text = "Так";
         coursesRadio.UseVisualStyleBackColor = true;
         // 
+        // printButton
+        // 
+        printButton.Location = new System.Drawing.Point(523, 37);
+        printButton.Name = "printButton";
+        printButton.Size = new System.Drawing.Size(75, 23);
+        printButton.TabIndex = 6;
+        printButton.Text = "Друк";
+        printButton.UseVisualStyleBackColor = true;
+        // 
+        // excelButton
+        // 
+        excelButton.Location = new System.Drawing.Point(442, 37);
+        excelButton.Name = "excelButton";
+        excelButton.Size = new System.Drawing.Size(75, 23);
+        excelButton.TabIndex = 7;
+        excelButton.Text = "Excel";
+        excelButton.UseVisualStyleBackColor = true;
+        excelButton.Click += excelButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -404,6 +427,9 @@ partial class MainForm
         filterGroupBox.PerformLayout();
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Button printButton;
+    private System.Windows.Forms.Button excelButton;
 
     private System.Windows.Forms.NumericUpDown recordIdInput;
 

@@ -42,8 +42,6 @@ partial class CreateRecordForm
         label6 = new System.Windows.Forms.Label();
         genderSelect = new System.Windows.Forms.ComboBox();
         label4 = new System.Windows.Forms.Label();
-        cityRadio = new System.Windows.Forms.RadioButton();
-        villageRadio = new System.Windows.Forms.RadioButton();
         label7 = new System.Windows.Forms.Label();
         regCertifInput = new System.Windows.Forms.TextBox();
         label8 = new System.Windows.Forms.Label();
@@ -65,6 +63,8 @@ partial class CreateRecordForm
         mgRadio = new System.Windows.Forms.RadioButton();
         mtRadio = new System.Windows.Forms.RadioButton();
         kiRadio = new System.Windows.Forms.RadioButton();
+        localityInput = new System.Windows.Forms.TextBox();
+        label5 = new System.Windows.Forms.Label();
         groupBox1.SuspendLayout();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
@@ -128,7 +128,7 @@ partial class CreateRecordForm
         // 
         // addressInput
         // 
-        addressInput.Location = new System.Drawing.Point(119, 52);
+        addressInput.Location = new System.Drawing.Point(119, 59);
         addressInput.Name = "addressInput";
         addressInput.Size = new System.Drawing.Size(170, 23);
         addressInput.TabIndex = 11;
@@ -152,31 +152,11 @@ partial class CreateRecordForm
         // 
         // label4
         // 
-        label4.Location = new System.Drawing.Point(13, 55);
+        label4.Location = new System.Drawing.Point(13, 62);
         label4.Name = "label4";
         label4.Size = new System.Drawing.Size(58, 23);
         label4.TabIndex = 16;
         label4.Text = "Адреса";
-        // 
-        // cityRadio
-        // 
-        cityRadio.Location = new System.Drawing.Point(119, 22);
-        cityRadio.Name = "cityRadio";
-        cityRadio.Size = new System.Drawing.Size(74, 24);
-        cityRadio.TabIndex = 17;
-        cityRadio.TabStop = true;
-        cityRadio.Text = "Місто";
-        cityRadio.UseVisualStyleBackColor = true;
-        // 
-        // villageRadio
-        // 
-        villageRadio.Location = new System.Drawing.Point(215, 22);
-        villageRadio.Name = "villageRadio";
-        villageRadio.Size = new System.Drawing.Size(74, 24);
-        villageRadio.TabIndex = 18;
-        villageRadio.TabStop = true;
-        villageRadio.Text = "Село";
-        villageRadio.UseVisualStyleBackColor = true;
         // 
         // label7
         // 
@@ -261,8 +241,8 @@ partial class CreateRecordForm
         // 
         // groupBox2
         // 
-        groupBox2.Controls.Add(cityRadio);
-        groupBox2.Controls.Add(villageRadio);
+        groupBox2.Controls.Add(localityInput);
+        groupBox2.Controls.Add(label5);
         groupBox2.Controls.Add(addressInput);
         groupBox2.Controls.Add(label4);
         groupBox2.Location = new System.Drawing.Point(318, 45);
@@ -395,6 +375,21 @@ partial class CreateRecordForm
         kiRadio.Text = "КІ";
         kiRadio.UseVisualStyleBackColor = true;
         // 
+        // localityInput
+        // 
+        localityInput.Location = new System.Drawing.Point(119, 30);
+        localityInput.Name = "localityInput";
+        localityInput.Size = new System.Drawing.Size(170, 23);
+        localityInput.TabIndex = 17;
+        // 
+        // label5
+        // 
+        label5.Location = new System.Drawing.Point(13, 33);
+        label5.Name = "label5";
+        label5.Size = new System.Drawing.Size(104, 23);
+        label5.TabIndex = 18;
+        label5.Text = "Населений пункт";
+        // 
         // CreateRecordForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -421,6 +416,9 @@ partial class CreateRecordForm
         ResumeLayout(false);
     }
 
+    private System.Windows.Forms.TextBox localityInput;
+    private System.Windows.Forms.Label label5;
+
     private System.Windows.Forms.GroupBox specializationGroupBox;
     private System.Windows.Forms.RadioButton kiRadio;
     private System.Windows.Forms.RadioButton mtRadio;
@@ -445,9 +443,6 @@ partial class CreateRecordForm
     private System.Windows.Forms.TextBox idCodeInput;
     private System.Windows.Forms.Label label9;
     private System.Windows.Forms.TextBox passportInput;
-
-    private System.Windows.Forms.RadioButton cityRadio;
-    private System.Windows.Forms.RadioButton villageRadio;
 
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.TextBox addressInput;

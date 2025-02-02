@@ -24,7 +24,6 @@ public partial class CreateRecordForm : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
-        var localityTypeId = cityRadio.Checked ? LocalityType.City : LocalityType.Village;
         var checkedSpecializationRadio = specializationGroupBox.Controls
             .OfType<RadioButton>()
             .First(cb => cb.Checked);
@@ -37,7 +36,7 @@ public partial class CreateRecordForm : Form
                 firstNameInput.Text,
                 middleNameInput.Text,
                 genderSelect.SelectedIndex,
-                localityTypeId,
+                localityInput.Text,
                 addressInput.Text,
                 passportInput.Text,
                 idCodeInput.Text,
@@ -56,7 +55,7 @@ public partial class CreateRecordForm : Form
                 firstNameInput.Text,
                 middleNameInput.Text,
                 genderSelect.SelectedIndex,
-                localityTypeId,
+                localityInput.Text,
                 addressInput.Text,
                 passportInput.Text,
                 idCodeInput.Text,
@@ -96,7 +95,6 @@ public partial class CreateRecordForm : Form
         {
             genderSelect.SelectedIndex = 0;
             educationSelect.SelectedIndex = 0;
-            cityRadio.Checked = true;
             kiRadio.Checked = true;
         }
         else
@@ -106,11 +104,7 @@ public partial class CreateRecordForm : Form
             middleNameInput.Text = _record.MiddleName;
             genderSelect.SelectedIndex = _record.GenderTypeId;
 
-            if (_record.LocalityTypeId == LocalityType.City)
-                cityRadio.Checked = true;
-            else
-                villageRadio.Checked = true;
-
+            localityInput.Text = _record.Locality;
             addressInput.Text = _record.Address;
 
             specializationGroupBox.Controls.OfType<RadioButton>()

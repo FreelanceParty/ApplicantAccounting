@@ -10,7 +10,7 @@ public class RecordFactory
         string firstName,
         string middleName,
         int genderTypeId,
-        int localityTypeId,
+        string locality,
         string address,
         string passportNumber,
         string idCode,
@@ -28,7 +28,7 @@ public class RecordFactory
             FirstName = firstName,
             MiddleName = middleName,
             GenderTypeId = genderTypeId,
-            LocalityTypeId = localityTypeId,
+            Locality = locality,
             Address = address,
             PassportNumber = passportNumber,
             IdCode = idCode,
@@ -45,7 +45,7 @@ public class RecordFactory
             r.LastName == newRecord.LastName &&
             r.MiddleName == newRecord.MiddleName &&
             r.GenderTypeId == newRecord.GenderTypeId &&
-            r.LocalityTypeId == newRecord.LocalityTypeId &&
+            r.Locality == newRecord.Locality &&
             r.Address == newRecord.Address &&
             r.PassportNumber == newRecord.PassportNumber &&
             r.IdCode == newRecord.IdCode &&
@@ -73,7 +73,7 @@ public class RecordFactory
         string firstName,
         string middleName,
         int genderTypeId,
-        int localityTypeId,
+        string locality,
         string address,
         string passportNumber,
         string idCode,
@@ -90,7 +90,7 @@ public class RecordFactory
         record.FirstName = firstName;
         record.MiddleName = middleName;
         record.GenderTypeId = genderTypeId;
-        record.LocalityTypeId = localityTypeId;
+        record.Locality = locality;
         record.Address = address;
         record.PassportNumber = passportNumber;
         record.IdCode = idCode;

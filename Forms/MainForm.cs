@@ -2,6 +2,7 @@ using ApplicantAccounting.Models;
 using ApplicantAccounting.Models.Controllers;
 using ApplicantAccounting.ValueObjects;
 using Microsoft.IdentityModel.Tokens;
+using OfficeOpenXml;
 
 namespace ApplicantAccounting.Forms;
 
@@ -80,6 +81,45 @@ public partial class MainForm : Form
         catch (Exception)
         {
             MessageBox.Show("Такого запису не існує");
+        }
+    }
+
+    private void excelButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            using var package = new ExcelPackage();
+            var worksheet = package.Workbook.Worksheets.Add("Сторінка 1");
+            for (int col = 0; col < dataGridView1.Columns.Count; col++)
+            {
+                worksheet.Cells[1, col + 1].Value = dataGridView1.Columns[col].HeaderText;
+            }
+
+            for (int row = 0; row < dataGridView1.Rows.Count; row++)
+            {
+                for (int col = 0; col < dataGridView1.Columns.Count; col++)
+                {
+                    worksheet.Cells[row + 2, col + 1].Value = dataGridView1.Rows[row].Cells[col].Value?.ToString();
+                }
+            }
+
+            worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+            using SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel files (*.xlsx)|*.xlsx";
+            saveFileDialog.Title = "Зберегти файл Excel";
+            saveFileDialog.FileName = $"applicants_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo fi = new FileInfo(saveFileDialog.FileName);
+                package.SaveAs(fi);
+                MessageBox.Show("Дані успішно експортовано!");
+            }
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show("Помилка під час вивантаження в Excel: " + exception.Message);
         }
     }
 }

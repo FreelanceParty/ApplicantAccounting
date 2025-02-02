@@ -10,7 +10,7 @@ public class Record
     public string MiddleName { get; set; }
     // public string BirthdayDate { get; set; }
     public int GenderTypeId { get; set; }
-    public int LocalityTypeId { get; set; }
+    public string Locality { get; set; }
     public string Address { get; set; }
     public string PassportNumber { get; set; }
     public string IdCode { get; set; }
@@ -32,7 +32,7 @@ public class Record
             { "firstName", "Ім'я" },
             { "middleName", "По-батькові" },
             { "gender", "Стать" },
-            { "locality", "Місцевість" },
+            { "locality", "Населений пункт" },
             { "address", "Адреса" },
             { "passportNumber", "Паспорт №" },
             { "idCode", "IД код" },
@@ -54,7 +54,7 @@ public class Record
             { "firstName", FirstName },
             { "middleName", MiddleName },
             { "gender", GenderType.GetAll()[GenderTypeId] },
-            { "locality", LocalityType.GetAll()[LocalityTypeId] },
+            { "locality", Locality },
             { "address", Address },
             { "passportNumber", PassportNumber },
             { "idCode", IdCode },
