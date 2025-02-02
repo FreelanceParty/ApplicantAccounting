@@ -58,9 +58,17 @@ partial class CreateRecordForm
         dormitoryCheckbox = new System.Windows.Forms.CheckBox();
         benefitsCheckbox = new System.Windows.Forms.CheckBox();
         coursesCheckbox = new System.Windows.Forms.CheckBox();
+        specializationGroupBox = new System.Windows.Forms.GroupBox();
+        fbRadio = new System.Windows.Forms.RadioButton();
+        ptbRadio = new System.Windows.Forms.RadioButton();
+        grsRadio = new System.Windows.Forms.RadioButton();
+        mgRadio = new System.Windows.Forms.RadioButton();
+        mtRadio = new System.Windows.Forms.RadioButton();
+        kiRadio = new System.Windows.Forms.RadioButton();
         groupBox1.SuspendLayout();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
+        specializationGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // lastNameInput
@@ -110,11 +118,11 @@ partial class CreateRecordForm
         // 
         // button2
         // 
-        button2.Location = new System.Drawing.Point(180, 492);
+        button2.Location = new System.Drawing.Point(486, 322);
         button2.Name = "button2";
         button2.Size = new System.Drawing.Size(121, 30);
         button2.TabIndex = 8;
-        button2.Text = "button2";
+        button2.Text = "Додати";
         button2.UseVisualStyleBackColor = true;
         button2.Click += button2_Click;
         // 
@@ -135,6 +143,7 @@ partial class CreateRecordForm
         // 
         // genderSelect
         // 
+        genderSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         genderSelect.FormattingEnabled = true;
         genderSelect.Location = new System.Drawing.Point(119, 109);
         genderSelect.Name = "genderSelect";
@@ -217,8 +226,9 @@ partial class CreateRecordForm
         // educationSelect
         // 
         educationSelect.DisplayMember = "Value";
+        educationSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
         educationSelect.FormattingEnabled = true;
-        educationSelect.Location = new System.Drawing.Point(131, 418);
+        educationSelect.Location = new System.Drawing.Point(437, 231);
         educationSelect.Name = "educationSelect";
         educationSelect.Size = new System.Drawing.Size(170, 23);
         educationSelect.TabIndex = 26;
@@ -226,7 +236,7 @@ partial class CreateRecordForm
         // 
         // label10
         // 
-        label10.Location = new System.Drawing.Point(25, 418);
+        label10.Location = new System.Drawing.Point(331, 234);
         label10.Name = "label10";
         label10.Size = new System.Drawing.Size(100, 23);
         label10.TabIndex = 25;
@@ -247,7 +257,7 @@ partial class CreateRecordForm
         groupBox1.Size = new System.Drawing.Size(300, 141);
         groupBox1.TabIndex = 27;
         groupBox1.TabStop = false;
-        groupBox1.Text = "groupBox1";
+        groupBox1.Text = "Основна інформація";
         // 
         // groupBox2
         // 
@@ -255,7 +265,7 @@ partial class CreateRecordForm
         groupBox2.Controls.Add(villageRadio);
         groupBox2.Controls.Add(addressInput);
         groupBox2.Controls.Add(label4);
-        groupBox2.Location = new System.Drawing.Point(12, 192);
+        groupBox2.Location = new System.Drawing.Point(318, 45);
         groupBox2.Name = "groupBox2";
         groupBox2.Size = new System.Drawing.Size(300, 91);
         groupBox2.TabIndex = 28;
@@ -270,7 +280,7 @@ partial class CreateRecordForm
         groupBox3.Controls.Add(label8);
         groupBox3.Controls.Add(regCertifInput);
         groupBox3.Controls.Add(label7);
-        groupBox3.Location = new System.Drawing.Point(12, 289);
+        groupBox3.Location = new System.Drawing.Point(12, 192);
         groupBox3.Name = "groupBox3";
         groupBox3.Size = new System.Drawing.Size(300, 115);
         groupBox3.TabIndex = 29;
@@ -279,7 +289,7 @@ partial class CreateRecordForm
         // 
         // dormitoryCheckbox
         // 
-        dormitoryCheckbox.Location = new System.Drawing.Point(25, 447);
+        dormitoryCheckbox.Location = new System.Drawing.Point(331, 266);
         dormitoryCheckbox.Name = "dormitoryCheckbox";
         dormitoryCheckbox.Size = new System.Drawing.Size(104, 24);
         dormitoryCheckbox.TabIndex = 31;
@@ -288,7 +298,7 @@ partial class CreateRecordForm
         // 
         // benefitsCheckbox
         // 
-        benefitsCheckbox.Location = new System.Drawing.Point(149, 447);
+        benefitsCheckbox.Location = new System.Drawing.Point(437, 266);
         benefitsCheckbox.Name = "benefitsCheckbox";
         benefitsCheckbox.Size = new System.Drawing.Size(86, 24);
         benefitsCheckbox.TabIndex = 32;
@@ -297,18 +307,100 @@ partial class CreateRecordForm
         // 
         // coursesCheckbox
         // 
-        coursesCheckbox.Location = new System.Drawing.Point(241, 447);
+        coursesCheckbox.Location = new System.Drawing.Point(533, 266);
         coursesCheckbox.Name = "coursesCheckbox";
         coursesCheckbox.Size = new System.Drawing.Size(104, 24);
         coursesCheckbox.TabIndex = 33;
         coursesCheckbox.Text = "Курси";
         coursesCheckbox.UseVisualStyleBackColor = true;
         // 
+        // specializationGroupBox
+        // 
+        specializationGroupBox.Controls.Add(fbRadio);
+        specializationGroupBox.Controls.Add(ptbRadio);
+        specializationGroupBox.Controls.Add(grsRadio);
+        specializationGroupBox.Controls.Add(mgRadio);
+        specializationGroupBox.Controls.Add(mtRadio);
+        specializationGroupBox.Controls.Add(kiRadio);
+        specializationGroupBox.Location = new System.Drawing.Point(320, 142);
+        specializationGroupBox.Name = "specializationGroupBox";
+        specializationGroupBox.Size = new System.Drawing.Size(298, 83);
+        specializationGroupBox.TabIndex = 34;
+        specializationGroupBox.TabStop = false;
+        specializationGroupBox.Text = "Спеціальність";
+        // 
+        // fbRadio
+        // 
+        fbRadio.Location = new System.Drawing.Point(210, 52);
+        fbRadio.Name = "fbRadio";
+        fbRadio.Size = new System.Drawing.Size(77, 24);
+        fbRadio.TabIndex = 5;
+        fbRadio.TabStop = true;
+        fbRadio.Tag = "5";
+        fbRadio.Text = "ФБ";
+        fbRadio.UseVisualStyleBackColor = true;
+        // 
+        // ptbRadio
+        // 
+        ptbRadio.Location = new System.Drawing.Point(114, 52);
+        ptbRadio.Name = "ptbRadio";
+        ptbRadio.Size = new System.Drawing.Size(77, 24);
+        ptbRadio.TabIndex = 4;
+        ptbRadio.TabStop = true;
+        ptbRadio.Tag = "4";
+        ptbRadio.Text = "ПТБ";
+        ptbRadio.UseVisualStyleBackColor = true;
+        // 
+        // grsRadio
+        // 
+        grsRadio.Location = new System.Drawing.Point(11, 52);
+        grsRadio.Name = "grsRadio";
+        grsRadio.Size = new System.Drawing.Size(77, 24);
+        grsRadio.TabIndex = 3;
+        grsRadio.TabStop = true;
+        grsRadio.Tag = "3";
+        grsRadio.Text = "ГРС";
+        grsRadio.UseVisualStyleBackColor = true;
+        // 
+        // mgRadio
+        // 
+        mgRadio.Location = new System.Drawing.Point(210, 22);
+        mgRadio.Name = "mgRadio";
+        mgRadio.Size = new System.Drawing.Size(77, 24);
+        mgRadio.TabIndex = 2;
+        mgRadio.TabStop = true;
+        mgRadio.Tag = "2";
+        mgRadio.Text = "МГ";
+        mgRadio.UseVisualStyleBackColor = true;
+        // 
+        // mtRadio
+        // 
+        mtRadio.Location = new System.Drawing.Point(114, 22);
+        mtRadio.Name = "mtRadio";
+        mtRadio.Size = new System.Drawing.Size(77, 24);
+        mtRadio.TabIndex = 1;
+        mtRadio.TabStop = true;
+        mtRadio.Tag = "1";
+        mtRadio.Text = "МТ";
+        mtRadio.UseVisualStyleBackColor = true;
+        // 
+        // kiRadio
+        // 
+        kiRadio.Location = new System.Drawing.Point(11, 22);
+        kiRadio.Name = "kiRadio";
+        kiRadio.Size = new System.Drawing.Size(77, 24);
+        kiRadio.TabIndex = 0;
+        kiRadio.TabStop = true;
+        kiRadio.Tag = "0";
+        kiRadio.Text = "КІ";
+        kiRadio.UseVisualStyleBackColor = true;
+        // 
         // CreateRecordForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(326, 536);
+        ClientSize = new System.Drawing.Size(628, 365);
+        Controls.Add(specializationGroupBox);
         Controls.Add(coursesCheckbox);
         Controls.Add(benefitsCheckbox);
         Controls.Add(dormitoryCheckbox);
@@ -325,8 +417,17 @@ partial class CreateRecordForm
         groupBox2.PerformLayout();
         groupBox3.ResumeLayout(false);
         groupBox3.PerformLayout();
+        specializationGroupBox.ResumeLayout(false);
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.GroupBox specializationGroupBox;
+    private System.Windows.Forms.RadioButton kiRadio;
+    private System.Windows.Forms.RadioButton mtRadio;
+    private System.Windows.Forms.RadioButton mgRadio;
+    private System.Windows.Forms.RadioButton fbRadio;
+    private System.Windows.Forms.RadioButton ptbRadio;
+    private System.Windows.Forms.RadioButton grsRadio;
 
     private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.GroupBox groupBox2;

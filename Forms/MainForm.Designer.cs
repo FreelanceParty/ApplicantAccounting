@@ -31,6 +31,8 @@ partial class MainForm
     {
         label1 = new System.Windows.Forms.Label();
         groupBox1 = new System.Windows.Forms.GroupBox();
+        recordIdInput = new System.Windows.Forms.NumericUpDown();
+        label9 = new System.Windows.Forms.Label();
         editRecordButton = new System.Windows.Forms.Button();
         newRecordButton = new System.Windows.Forms.Button();
         statisticsGroupBox = new System.Windows.Forms.GroupBox();
@@ -49,7 +51,7 @@ partial class MainForm
         label6 = new System.Windows.Forms.Label();
         label7 = new System.Windows.Forms.Label();
         label8 = new System.Windows.Forms.Label();
-        groupBox2 = new System.Windows.Forms.GroupBox();
+        filterGroupBox = new System.Windows.Forms.GroupBox();
         fbRadio = new System.Windows.Forms.RadioButton();
         ptbRadio = new System.Windows.Forms.RadioButton();
         grsRadio = new System.Windows.Forms.RadioButton();
@@ -60,10 +62,11 @@ partial class MainForm
         dormitoryRadio = new System.Windows.Forms.RadioButton();
         coursesRadio = new System.Windows.Forms.RadioButton();
         groupBox1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)recordIdInput).BeginInit();
         statisticsGroupBox.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         groupBox3.SuspendLayout();
-        groupBox2.SuspendLayout();
+        filterGroupBox.SuspendLayout();
         SuspendLayout();
         // 
         // label1
@@ -76,27 +79,46 @@ partial class MainForm
         // 
         // groupBox1
         // 
+        groupBox1.Controls.Add(recordIdInput);
+        groupBox1.Controls.Add(label9);
         groupBox1.Controls.Add(editRecordButton);
         groupBox1.Controls.Add(newRecordButton);
-        groupBox1.Location = new System.Drawing.Point(12, 75);
+        groupBox1.Location = new System.Drawing.Point(12, 35);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(282, 75);
+        groupBox1.Size = new System.Drawing.Size(282, 115);
         groupBox1.TabIndex = 1;
         groupBox1.TabStop = false;
         groupBox1.Text = "groupBox1";
         // 
+        // recordIdInput
+        // 
+        recordIdInput.Location = new System.Drawing.Point(142, 42);
+        recordIdInput.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+        recordIdInput.Name = "recordIdInput";
+        recordIdInput.Size = new System.Drawing.Size(111, 23);
+        recordIdInput.TabIndex = 4;
+        // 
+        // label9
+        // 
+        label9.Location = new System.Drawing.Point(152, 19);
+        label9.Name = "label9";
+        label9.Size = new System.Drawing.Size(100, 20);
+        label9.TabIndex = 3;
+        label9.Text = "Номер запису:";
+        // 
         // editRecordButton
         // 
-        editRecordButton.Location = new System.Drawing.Point(140, 26);
+        editRecordButton.Location = new System.Drawing.Point(141, 71);
         editRecordButton.Name = "editRecordButton";
         editRecordButton.Size = new System.Drawing.Size(112, 35);
         editRecordButton.TabIndex = 1;
         editRecordButton.Text = "Редагувати запис";
         editRecordButton.UseVisualStyleBackColor = true;
+        editRecordButton.Click += editRecordButton_Click;
         // 
         // newRecordButton
         // 
-        newRecordButton.Location = new System.Drawing.Point(22, 26);
+        newRecordButton.Location = new System.Drawing.Point(23, 71);
         newRecordButton.Name = "newRecordButton";
         newRecordButton.Size = new System.Drawing.Size(112, 35);
         newRecordButton.TabIndex = 0;
@@ -118,12 +140,13 @@ partial class MainForm
         // 
         // comboBox1
         // 
-        comboBox1.Font = new System.Drawing.Font("Segoe UI", 15F);
+        comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
         comboBox1.FormattingEnabled = true;
         comboBox1.Items.AddRange(new object[] { "Сьогодні", "Всього" });
-        comboBox1.Location = new System.Drawing.Point(6, 27);
+        comboBox1.Location = new System.Drawing.Point(7, 38);
         comboBox1.Name = "comboBox1";
-        comboBox1.Size = new System.Drawing.Size(139, 36);
+        comboBox1.Size = new System.Drawing.Size(139, 23);
         comboBox1.TabIndex = 5;
         // 
         // dataGridView1
@@ -243,31 +266,31 @@ partial class MainForm
         label8.TabIndex = 26;
         label8.Text = "Пільги";
         // 
-        // groupBox2
+        // filterGroupBox
         // 
-        groupBox2.Controls.Add(fbRadio);
-        groupBox2.Controls.Add(ptbRadio);
-        groupBox2.Controls.Add(grsRadio);
-        groupBox2.Controls.Add(mgRadio);
-        groupBox2.Controls.Add(mtRadio);
-        groupBox2.Controls.Add(kiRado);
-        groupBox2.Controls.Add(benefitsRadio);
-        groupBox2.Controls.Add(dormitoryRadio);
-        groupBox2.Controls.Add(coursesRadio);
-        groupBox2.Controls.Add(label8);
-        groupBox2.Controls.Add(label7);
-        groupBox2.Controls.Add(label6);
-        groupBox2.Controls.Add(label3);
-        groupBox2.Controls.Add(showButton);
-        groupBox2.Controls.Add(groupBox3);
-        groupBox2.Controls.Add(label2);
-        groupBox2.Controls.Add(lastNameInput);
-        groupBox2.Location = new System.Drawing.Point(12, 156);
-        groupBox2.Name = "groupBox2";
-        groupBox2.Size = new System.Drawing.Size(606, 199);
-        groupBox2.TabIndex = 3;
-        groupBox2.TabStop = false;
-        groupBox2.Text = "Вибірка";
+        filterGroupBox.Controls.Add(fbRadio);
+        filterGroupBox.Controls.Add(ptbRadio);
+        filterGroupBox.Controls.Add(grsRadio);
+        filterGroupBox.Controls.Add(mgRadio);
+        filterGroupBox.Controls.Add(mtRadio);
+        filterGroupBox.Controls.Add(kiRado);
+        filterGroupBox.Controls.Add(benefitsRadio);
+        filterGroupBox.Controls.Add(dormitoryRadio);
+        filterGroupBox.Controls.Add(coursesRadio);
+        filterGroupBox.Controls.Add(label8);
+        filterGroupBox.Controls.Add(label7);
+        filterGroupBox.Controls.Add(label6);
+        filterGroupBox.Controls.Add(label3);
+        filterGroupBox.Controls.Add(showButton);
+        filterGroupBox.Controls.Add(groupBox3);
+        filterGroupBox.Controls.Add(label2);
+        filterGroupBox.Controls.Add(lastNameInput);
+        filterGroupBox.Location = new System.Drawing.Point(12, 156);
+        filterGroupBox.Name = "filterGroupBox";
+        filterGroupBox.Size = new System.Drawing.Size(606, 199);
+        filterGroupBox.TabIndex = 3;
+        filterGroupBox.TabStop = false;
+        filterGroupBox.Text = "Вибірка";
         // 
         // fbRadio
         // 
@@ -346,6 +369,7 @@ partial class MainForm
         dormitoryRadio.Size = new System.Drawing.Size(62, 24);
         dormitoryRadio.TabIndex = 28;
         dormitoryRadio.TabStop = true;
+        dormitoryRadio.Tag = "withDormitory";
         dormitoryRadio.Text = "Так";
         dormitoryRadio.UseVisualStyleBackColor = true;
         // 
@@ -364,21 +388,26 @@ partial class MainForm
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(630, 671);
-        Controls.Add(groupBox2);
+        Controls.Add(filterGroupBox);
         Controls.Add(statisticsGroupBox);
         Controls.Add(groupBox1);
         Controls.Add(label1);
         Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
         Text = "Головна Форма";
         groupBox1.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)recordIdInput).EndInit();
         statisticsGroupBox.ResumeLayout(false);
         statisticsGroupBox.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
         groupBox3.ResumeLayout(false);
-        groupBox2.ResumeLayout(false);
-        groupBox2.PerformLayout();
+        filterGroupBox.ResumeLayout(false);
+        filterGroupBox.PerformLayout();
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.NumericUpDown recordIdInput;
+
+    private System.Windows.Forms.Label label9;
 
     private System.Windows.Forms.RadioButton kiRado;
     private System.Windows.Forms.RadioButton mtRadio;
@@ -409,7 +438,7 @@ partial class MainForm
     private System.Windows.Forms.DateTimePicker dateTimePicker2;
     private System.Windows.Forms.GroupBox groupBox3;
 
-    private System.Windows.Forms.GroupBox groupBox2;
+    private System.Windows.Forms.GroupBox filterGroupBox;
 
     private System.Windows.Forms.Button newRecordButton;
     private System.Windows.Forms.Button editRecordButton;

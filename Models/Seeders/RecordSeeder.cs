@@ -29,7 +29,7 @@ public class RecordSeeder
         {
             LastName = faker.Name.LastName(),
             FirstName = faker.Name.FirstName(),
-            MiddleName = "По-батькові",
+            MiddleName = "По-батькові " + faker.Random.Int(0, 50),
             Address = faker.Address.StreetAddress(),
             GenderTypeId = faker.Random.Int(0, GenderType.GetAll().Count - 1),
             EducationTypeId = faker.Random.Int(0, EducationType.GetAll().Count - 1),
@@ -37,13 +37,13 @@ public class RecordSeeder
             Benefits = faker.Random.Bool(),
             Courses = faker.Random.Bool(),
             Dormitory = faker.Random.Bool(),
-            PassportNumber = faker.Random.String(6),
-            IdCode = faker.Random.String(6),
-            RegistrationСertificate = faker.Random.String(6),
-            
+            PassportNumber = faker.Random.String2(6),
+            IdCode = faker.Random.String2(6),
+            RegistrationСertificate = faker.Random.String2(6),
+            SpecializationTypeId = faker.Random.Int(0, SpecializationType.GetAll().Count - 1),
         };
     }
-    
+
     private static List<Record> CreateMany(int count)
     {
         var list = new List<Record>();
@@ -51,6 +51,7 @@ public class RecordSeeder
         {
             list.Add(Create());
         }
+
         return list;
     }
 }

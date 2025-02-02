@@ -21,7 +21,7 @@ public class Record
 
     public bool Benefits { get; set; }
     // public string SubmissionDate { get; set; }
-    // public SpecializationType Specialization { get; set; }
+    public int SpecializationTypeId { get; set; }
 
     public static Dictionary<string, string> GetColumns()
     {
@@ -41,6 +41,7 @@ public class Record
             { "dormitory", "Гуртожиток" },
             { "courses", "Курси" },
             { "benefits", "Пільги" },
+            { "specialization", "Спеціальність" },
         };
     }
 
@@ -62,6 +63,7 @@ public class Record
             { "dormitory", Dormitory ? "Так" : "Ні" },
             { "courses", Courses ? "Так" : "Ні" },
             { "benefits", Benefits ? "Так" : "Ні" },
+            { "specialization", SpecializationType.GetAll()[SpecializationTypeId] },
         };
     }
 }
