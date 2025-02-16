@@ -34,4 +34,9 @@ public class RecordController(RecordRepository repository)
     {
         return Instance._repository.GetFiltered(predicate);
     }
+
+    public static int GetCount(bool byToday = false)
+    {
+        return Instance._repository.GetCount(byToday);
+    }
 }

@@ -23,6 +23,7 @@ public class RecordSeeder(AppDbContext context)
             LastName = faker.Name.LastName(),
             FirstName = faker.Name.FirstName(),
             MiddleName = "По-батькові " + faker.Random.Int(0, 50),
+            BirthdayDate = faker.Date.Between(DateTime.Now.AddYears(-30), DateTime.Now.AddYears(-15)),
             Address = faker.Address.StreetAddress(),
             GenderTypeId = faker.Random.Int(0, GenderType.GetAll().Count - 1),
             EducationTypeId = faker.Random.Int(0, EducationType.GetAll().Count - 1),
@@ -34,6 +35,7 @@ public class RecordSeeder(AppDbContext context)
             IdCode = faker.Random.String2(6),
             RegistrationСertificate = faker.Random.String2(6),
             SpecializationTypeId = faker.Random.Int(0, SpecializationType.GetAll().Count - 1),
+            SubmissionDate = faker.Date.Past(2),
         };
     }
 

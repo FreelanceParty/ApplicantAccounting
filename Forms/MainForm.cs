@@ -21,26 +21,7 @@ public partial class MainForm : Form
 
     private void showButton_Click(object sender, EventArgs e)
     {
-        dataGridView1.Columns.Clear();
-        dataGridView1.Rows.Clear();
-        foreach (var column in Record.GetColumns())
-        {
-            dataGridView1.Columns.Add(column.Key, column.Value);
-        }
-
-        foreach (var record in RecordController.GetFiltered(GetPredicateForSelectedFilter()))
-        {
-            var row = new DataGridViewRow();
-            row.CreateCells(dataGridView1);
-            var index = 0;
-            foreach (var data in record.GetDataForGridRow())
-            {
-                row.Cells[index].Value = data.Value;
-                index++;
-            }
-
-            dataGridView1.Rows.Add(row);
-        }
+        Show();
     }
 
     private Func<Record, bool> GetPredicateForSelectedFilter()
@@ -55,7 +36,7 @@ public partial class MainForm : Form
             { mgRadio, record => record.SpecializationTypeId == SpecializationType.MG },
             { grsRadio, record => record.SpecializationTypeId == SpecializationType.GRS },
             { ptbRadio, record => record.SpecializationTypeId == SpecializationType.PTB },
-            { fbRadio, record => record.SpecializationTypeId == SpecializationType.FB }
+            { fbRadio, record => record.SpecializationTypeId == SpecializationType.FB },
         };
 
         var predicate = predicates.FirstOrDefault(pair => pair.Key.Checked).Value ?? (_ => true);
@@ -65,6 +46,10 @@ public partial class MainForm : Form
             var predicate1 = predicate;
             predicate = record => predicate1(record) && record.LastName == lastNameInput.Text;
         }
+
+        var predicate2 = predicate;
+        predicate = record => predicate2(record) && record.SubmissionDate >= fromDatePicker.Value &&
+                              record.SubmissionDate <= toDatePicker.Value;
 
         return predicate;
     }
@@ -120,6 +105,41 @@ public partial class MainForm : Form
         catch (Exception exception)
         {
             MessageBox.Show("Помилка під час вивантаження в Excel: " + exception.Message);
+        }
+    }
+
+    private void statisticsSelect_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        bool forToday = statisticsSelect.SelectedIndex == 0;
+        countInput.Text = RecordController.GetCount(forToday).ToString();
+        Show(forToday);
+    }
+
+    private void Show(bool forToday = false)
+    {
+        dataGridView1.Columns.Clear();
+        dataGridView1.Rows.Clear();
+        foreach (var column in Record.GetColumns())
+        {
+            dataGridView1.Columns.Add(column.Key, column.Value);
+        }
+
+        List<Record> records = forToday
+            ? RecordController.GetFiltered(record => record.SubmissionDate.Date == DateTime.Today)
+            : RecordController.GetFiltered(GetPredicateForSelectedFilter());
+
+        foreach (var record in records)
+        {
+            var row = new DataGridViewRow();
+            row.CreateCells(dataGridView1);
+            var index = 0;
+            foreach (var data in record.GetDataForGridRow())
+            {
+                row.Cells[index].Value = data.Value;
+                index++;
+            }
+
+            dataGridView1.Rows.Add(row);
         }
     }
 }

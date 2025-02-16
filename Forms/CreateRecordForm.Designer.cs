@@ -52,6 +52,8 @@ partial class CreateRecordForm
         label10 = new System.Windows.Forms.Label();
         groupBox1 = new System.Windows.Forms.GroupBox();
         groupBox2 = new System.Windows.Forms.GroupBox();
+        localityInput = new System.Windows.Forms.TextBox();
+        label5 = new System.Windows.Forms.Label();
         groupBox3 = new System.Windows.Forms.GroupBox();
         dormitoryCheckbox = new System.Windows.Forms.CheckBox();
         benefitsCheckbox = new System.Windows.Forms.CheckBox();
@@ -63,8 +65,8 @@ partial class CreateRecordForm
         mgRadio = new System.Windows.Forms.RadioButton();
         mtRadio = new System.Windows.Forms.RadioButton();
         kiRadio = new System.Windows.Forms.RadioButton();
-        localityInput = new System.Windows.Forms.TextBox();
-        label5 = new System.Windows.Forms.Label();
+        label11 = new System.Windows.Forms.Label();
+        birthDatePicker = new System.Windows.Forms.DateTimePicker();
         groupBox1.SuspendLayout();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
@@ -224,6 +226,8 @@ partial class CreateRecordForm
         // 
         // groupBox1
         // 
+        groupBox1.Controls.Add(birthDatePicker);
+        groupBox1.Controls.Add(label11);
         groupBox1.Controls.Add(lastNameInput);
         groupBox1.Controls.Add(label1);
         groupBox1.Controls.Add(firstNameInput);
@@ -234,7 +238,7 @@ partial class CreateRecordForm
         groupBox1.Controls.Add(genderSelect);
         groupBox1.Location = new System.Drawing.Point(12, 45);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(300, 141);
+        groupBox1.Size = new System.Drawing.Size(300, 180);
         groupBox1.TabIndex = 27;
         groupBox1.TabStop = false;
         groupBox1.Text = "Основна інформація";
@@ -252,6 +256,21 @@ partial class CreateRecordForm
         groupBox2.TabStop = false;
         groupBox2.Text = "Місце проживання";
         // 
+        // localityInput
+        // 
+        localityInput.Location = new System.Drawing.Point(119, 30);
+        localityInput.Name = "localityInput";
+        localityInput.Size = new System.Drawing.Size(170, 23);
+        localityInput.TabIndex = 17;
+        // 
+        // label5
+        // 
+        label5.Location = new System.Drawing.Point(13, 33);
+        label5.Name = "label5";
+        label5.Size = new System.Drawing.Size(104, 23);
+        label5.TabIndex = 18;
+        label5.Text = "Населений пункт";
+        // 
         // groupBox3
         // 
         groupBox3.Controls.Add(passportInput);
@@ -260,7 +279,7 @@ partial class CreateRecordForm
         groupBox3.Controls.Add(label8);
         groupBox3.Controls.Add(regCertifInput);
         groupBox3.Controls.Add(label7);
-        groupBox3.Location = new System.Drawing.Point(12, 192);
+        groupBox3.Location = new System.Drawing.Point(12, 231);
         groupBox3.Name = "groupBox3";
         groupBox3.Size = new System.Drawing.Size(300, 115);
         groupBox3.TabIndex = 29;
@@ -375,20 +394,21 @@ partial class CreateRecordForm
         kiRadio.Text = "КІ";
         kiRadio.UseVisualStyleBackColor = true;
         // 
-        // localityInput
+        // label11
         // 
-        localityInput.Location = new System.Drawing.Point(119, 30);
-        localityInput.Name = "localityInput";
-        localityInput.Size = new System.Drawing.Size(170, 23);
-        localityInput.TabIndex = 17;
+        label11.Location = new System.Drawing.Point(13, 144);
+        label11.Name = "label11";
+        label11.Size = new System.Drawing.Size(100, 23);
+        label11.TabIndex = 16;
+        label11.Text = "Дата народження";
         // 
-        // label5
+        // birthDatePicker
         // 
-        label5.Location = new System.Drawing.Point(13, 33);
-        label5.Name = "label5";
-        label5.Size = new System.Drawing.Size(104, 23);
-        label5.TabIndex = 18;
-        label5.Text = "Населений пункт";
+        birthDatePicker.Location = new System.Drawing.Point(119, 138);
+        birthDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+        birthDatePicker.Name = "birthDatePicker";
+        birthDatePicker.Size = new System.Drawing.Size(170, 23);
+        birthDatePicker.TabIndex = 17;
         // 
         // CreateRecordForm
         // 
@@ -415,6 +435,9 @@ partial class CreateRecordForm
         specializationGroupBox.ResumeLayout(false);
         ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Label label11;
+    private System.Windows.Forms.DateTimePicker birthDatePicker;
 
     private System.Windows.Forms.TextBox localityInput;
     private System.Windows.Forms.Label label5;

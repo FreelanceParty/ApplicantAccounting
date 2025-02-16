@@ -8,7 +8,7 @@ public class Record
     public string LastName { get; set; }
     public string FirstName { get; set; }
     public string MiddleName { get; set; }
-    // public string BirthdayDate { get; set; }
+    public DateTime BirthdayDate { get; set; }
     public int GenderTypeId { get; set; }
     public string Locality { get; set; }
     public string Address { get; set; }
@@ -18,10 +18,9 @@ public class Record
     public int EducationTypeId { get; set; }
     public bool Dormitory { get; set; }
     public bool Courses { get; set; }
-
     public bool Benefits { get; set; }
-    // public string SubmissionDate { get; set; }
     public int SpecializationTypeId { get; set; }
+    public DateTime SubmissionDate { get; set; }
 
     public static Dictionary<string, string> GetColumns()
     {
@@ -31,6 +30,7 @@ public class Record
             { "lastName", "Прізвище" },
             { "firstName", "Ім'я" },
             { "middleName", "По-батькові" },
+            { "birthDate", "Дата народження" },
             { "gender", "Стать" },
             { "locality", "Населений пункт" },
             { "address", "Адреса" },
@@ -42,6 +42,7 @@ public class Record
             { "courses", "Курси" },
             { "benefits", "Пільги" },
             { "specialization", "Спеціальність" },
+            { "submissionDate", "Дата подачі" },
         };
     }
 
@@ -53,6 +54,7 @@ public class Record
             { "lastName", LastName },
             { "firstName", FirstName },
             { "middleName", MiddleName },
+            { "birthDate", BirthdayDate.ToString("dd.MM.yyyy") },
             { "gender", GenderType.GetAll()[GenderTypeId] },
             { "locality", Locality },
             { "address", Address },
@@ -64,6 +66,7 @@ public class Record
             { "courses", Courses ? "Так" : "Ні" },
             { "benefits", Benefits ? "Так" : "Ні" },
             { "specialization", SpecializationType.GetAll()[SpecializationTypeId] },
+            { "submissionDate", SubmissionDate.ToString("dd.MM.yyyy") },
         };
     }
 }

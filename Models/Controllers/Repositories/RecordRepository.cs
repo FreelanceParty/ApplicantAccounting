@@ -20,4 +20,9 @@ public class RecordRepository(DbContext context)
     {
         return _dbSet.Where(predicate).ToList();
     }
+
+    public int GetCount(bool byToday = false)
+    {
+        return byToday ? _dbSet.Count(x => x.SubmissionDate.Date == DateTime.Today) : _dbSet.Count();
+    }
 }

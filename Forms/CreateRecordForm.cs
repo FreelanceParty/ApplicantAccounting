@@ -1,5 +1,4 @@
 ﻿using ApplicantAccounting.Models;
-using ApplicantAccounting.Models.Controllers;
 using ApplicantAccounting.Models.Factories;
 using ApplicantAccounting.ValueObjects;
 
@@ -35,6 +34,7 @@ public partial class CreateRecordForm : Form
                 lastNameInput.Text,
                 firstNameInput.Text,
                 middleNameInput.Text,
+                DateTime.Parse(birthDatePicker.Text),
                 genderSelect.SelectedIndex,
                 localityInput.Text,
                 addressInput.Text,
@@ -54,6 +54,7 @@ public partial class CreateRecordForm : Form
                 lastNameInput.Text,
                 firstNameInput.Text,
                 middleNameInput.Text,
+                DateTime.Parse(birthDatePicker.Text),
                 genderSelect.SelectedIndex,
                 localityInput.Text,
                 addressInput.Text,
@@ -64,7 +65,8 @@ public partial class CreateRecordForm : Form
                 dormitoryCheckbox.Checked,
                 coursesCheckbox.Checked,
                 benefitsCheckbox.Checked,
-                int.Parse(checkedSpecializationRadio.Tag.ToString())
+                int.Parse(checkedSpecializationRadio.Tag.ToString()),
+                DateTime.Now
             );
         }
 

@@ -1,5 +1,4 @@
 ﻿using ApplicantAccounting.Exceptions;
-using ApplicantAccounting.ValueObjects;
 
 namespace ApplicantAccounting.Models.Factories;
 
@@ -9,6 +8,7 @@ public class RecordFactory
         string lastName,
         string firstName,
         string middleName,
+        DateTime birthdayDate,
         int genderTypeId,
         string locality,
         string address,
@@ -19,7 +19,8 @@ public class RecordFactory
         bool withDormitory,
         bool withCourses,
         bool withBenefits,
-        int specializationTypeId
+        int specializationTypeId,
+        DateTime submissionDate
     )
     {
         var newRecord = new Record()
@@ -27,6 +28,7 @@ public class RecordFactory
             LastName = lastName,
             FirstName = firstName,
             MiddleName = middleName,
+            BirthdayDate = birthdayDate,
             GenderTypeId = genderTypeId,
             Locality = locality,
             Address = address,
@@ -38,12 +40,14 @@ public class RecordFactory
             Courses = withCourses,
             Benefits = withBenefits,
             SpecializationTypeId = specializationTypeId,
+            SubmissionDate = submissionDate,
         };
         using var context = new AppDbContext();
         var record = context.Records.FirstOrDefault(r =>
             r.FirstName == newRecord.FirstName &&
             r.LastName == newRecord.LastName &&
             r.MiddleName == newRecord.MiddleName &&
+            r.BirthdayDate == newRecord.BirthdayDate &&
             r.GenderTypeId == newRecord.GenderTypeId &&
             r.Locality == newRecord.Locality &&
             r.Address == newRecord.Address &&
@@ -54,7 +58,8 @@ public class RecordFactory
             r.Dormitory == newRecord.Dormitory &&
             r.Courses == newRecord.Courses &&
             r.Benefits == newRecord.Benefits &&
-            r.SpecializationTypeId == newRecord.SpecializationTypeId
+            r.SpecializationTypeId == newRecord.SpecializationTypeId &&
+            r.SubmissionDate == newRecord.SubmissionDate
         );
         if (record != null)
         {
@@ -72,6 +77,7 @@ public class RecordFactory
         string lastName,
         string firstName,
         string middleName,
+        DateTime birthdayDate,
         int genderTypeId,
         string locality,
         string address,
@@ -82,13 +88,15 @@ public class RecordFactory
         bool withDormitory,
         bool withCourses,
         bool withBenefits,
-        int specializationTypeId
+        int specializationTypeId,
+        DateTime? submissionDate = null
     )
     {
         using var context = new AppDbContext();
         record.LastName = lastName;
         record.FirstName = firstName;
         record.MiddleName = middleName;
+        record.BirthdayDate = birthdayDate;
         record.GenderTypeId = genderTypeId;
         record.Locality = locality;
         record.Address = address;
@@ -100,6 +108,11 @@ public class RecordFactory
         record.Courses = withCourses;
         record.Benefits = withBenefits;
         record.SpecializationTypeId = specializationTypeId;
+        if (submissionDate != null)
+        {
+            record.SubmissionDate = (DateTime)submissionDate;
+        }
+
         context.Records.Update(record);
         return record;
     }

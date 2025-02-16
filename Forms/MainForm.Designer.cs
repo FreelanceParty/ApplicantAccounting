@@ -36,14 +36,16 @@ partial class MainForm
         editRecordButton = new System.Windows.Forms.Button();
         newRecordButton = new System.Windows.Forms.Button();
         statisticsGroupBox = new System.Windows.Forms.GroupBox();
-        comboBox1 = new System.Windows.Forms.ComboBox();
+        excelButton = new System.Windows.Forms.Button();
+        printButton = new System.Windows.Forms.Button();
+        statisticsSelect = new System.Windows.Forms.ComboBox();
         dataGridView1 = new System.Windows.Forms.DataGridView();
-        textBox1 = new System.Windows.Forms.TextBox();
+        countInput = new System.Windows.Forms.TextBox();
         lastNameInput = new System.Windows.Forms.TextBox();
         label2 = new System.Windows.Forms.Label();
         groupBox3 = new System.Windows.Forms.GroupBox();
-        dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-        dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+        fromDatePicker = new System.Windows.Forms.DateTimePicker();
+        toDatePicker = new System.Windows.Forms.DateTimePicker();
         label4 = new System.Windows.Forms.Label();
         label5 = new System.Windows.Forms.Label();
         showButton = new System.Windows.Forms.Button();
@@ -61,8 +63,6 @@ partial class MainForm
         benefitsRadio = new System.Windows.Forms.RadioButton();
         dormitoryRadio = new System.Windows.Forms.RadioButton();
         coursesRadio = new System.Windows.Forms.RadioButton();
-        printButton = new System.Windows.Forms.Button();
-        excelButton = new System.Windows.Forms.Button();
         groupBox1.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)recordIdInput).BeginInit();
         statisticsGroupBox.SuspendLayout();
@@ -132,9 +132,9 @@ partial class MainForm
         // 
         statisticsGroupBox.Controls.Add(excelButton);
         statisticsGroupBox.Controls.Add(printButton);
-        statisticsGroupBox.Controls.Add(comboBox1);
+        statisticsGroupBox.Controls.Add(statisticsSelect);
         statisticsGroupBox.Controls.Add(dataGridView1);
-        statisticsGroupBox.Controls.Add(textBox1);
+        statisticsGroupBox.Controls.Add(countInput);
         statisticsGroupBox.Location = new System.Drawing.Point(12, 361);
         statisticsGroupBox.Name = "statisticsGroupBox";
         statisticsGroupBox.Size = new System.Drawing.Size(604, 301);
@@ -142,16 +142,36 @@ partial class MainForm
         statisticsGroupBox.TabStop = false;
         statisticsGroupBox.Text = "Статистика";
         // 
-        // comboBox1
+        // excelButton
         // 
-        comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
-        comboBox1.FormattingEnabled = true;
-        comboBox1.Items.AddRange(new object[] { "Сьогодні", "Всього" });
-        comboBox1.Location = new System.Drawing.Point(7, 38);
-        comboBox1.Name = "comboBox1";
-        comboBox1.Size = new System.Drawing.Size(139, 23);
-        comboBox1.TabIndex = 5;
+        excelButton.Location = new System.Drawing.Point(442, 37);
+        excelButton.Name = "excelButton";
+        excelButton.Size = new System.Drawing.Size(75, 23);
+        excelButton.TabIndex = 7;
+        excelButton.Text = "Excel";
+        excelButton.UseVisualStyleBackColor = true;
+        excelButton.Click += excelButton_Click;
+        // 
+        // printButton
+        // 
+        printButton.Location = new System.Drawing.Point(523, 37);
+        printButton.Name = "printButton";
+        printButton.Size = new System.Drawing.Size(75, 23);
+        printButton.TabIndex = 6;
+        printButton.Text = "Друк";
+        printButton.UseVisualStyleBackColor = true;
+        // 
+        // statisticsSelect
+        // 
+        statisticsSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+        statisticsSelect.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
+        statisticsSelect.FormattingEnabled = true;
+        statisticsSelect.Items.AddRange(new object[] { "Сьогодні", "Всього" });
+        statisticsSelect.Location = new System.Drawing.Point(7, 38);
+        statisticsSelect.Name = "statisticsSelect";
+        statisticsSelect.Size = new System.Drawing.Size(139, 23);
+        statisticsSelect.TabIndex = 5;
+        statisticsSelect.SelectedIndexChanged += statisticsSelect_SelectedIndexChanged;
         // 
         // dataGridView1
         // 
@@ -162,13 +182,13 @@ partial class MainForm
         dataGridView1.Size = new System.Drawing.Size(592, 218);
         dataGridView1.TabIndex = 4;
         // 
-        // textBox1
+        // countInput
         // 
-        textBox1.Font = new System.Drawing.Font("Segoe UI", 15F);
-        textBox1.Location = new System.Drawing.Point(152, 27);
-        textBox1.Name = "textBox1";
-        textBox1.Size = new System.Drawing.Size(123, 34);
-        textBox1.TabIndex = 1;
+        countInput.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)204));
+        countInput.Location = new System.Drawing.Point(152, 33);
+        countInput.Name = "countInput";
+        countInput.Size = new System.Drawing.Size(79, 29);
+        countInput.TabIndex = 1;
         // 
         // lastNameInput
         // 
@@ -187,8 +207,8 @@ partial class MainForm
         // 
         // groupBox3
         // 
-        groupBox3.Controls.Add(dateTimePicker1);
-        groupBox3.Controls.Add(dateTimePicker2);
+        groupBox3.Controls.Add(fromDatePicker);
+        groupBox3.Controls.Add(toDatePicker);
         groupBox3.Controls.Add(label4);
         groupBox3.Controls.Add(label5);
         groupBox3.Location = new System.Drawing.Point(6, 65);
@@ -198,19 +218,21 @@ partial class MainForm
         groupBox3.TabStop = false;
         groupBox3.Text = "Дата запису";
         // 
-        // dateTimePicker1
+        // fromDatePicker
         // 
-        dateTimePicker1.Location = new System.Drawing.Point(63, 43);
-        dateTimePicker1.Name = "dateTimePicker1";
-        dateTimePicker1.Size = new System.Drawing.Size(201, 23);
-        dateTimePicker1.TabIndex = 5;
+        fromDatePicker.Location = new System.Drawing.Point(63, 43);
+        fromDatePicker.Name = "fromDatePicker";
+        fromDatePicker.Size = new System.Drawing.Size(201, 23);
+        fromDatePicker.TabIndex = 5;
+        fromDatePicker.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
         // 
-        // dateTimePicker2
+        // toDatePicker
         // 
-        dateTimePicker2.Location = new System.Drawing.Point(63, 81);
-        dateTimePicker2.Name = "dateTimePicker2";
-        dateTimePicker2.Size = new System.Drawing.Size(201, 23);
-        dateTimePicker2.TabIndex = 6;
+        toDatePicker.Location = new System.Drawing.Point(63, 81);
+        toDatePicker.Name = "toDatePicker";
+        toDatePicker.Size = new System.Drawing.Size(201, 23);
+        toDatePicker.TabIndex = 6;
+        toDatePicker.Value = new System.DateTime(2029, 12, 31, 0, 0, 0, 0);
         // 
         // label4
         // 
@@ -387,25 +409,6 @@ partial class MainForm
         coursesRadio.Text = "Так";
         coursesRadio.UseVisualStyleBackColor = true;
         // 
-        // printButton
-        // 
-        printButton.Location = new System.Drawing.Point(523, 37);
-        printButton.Name = "printButton";
-        printButton.Size = new System.Drawing.Size(75, 23);
-        printButton.TabIndex = 6;
-        printButton.Text = "Друк";
-        printButton.UseVisualStyleBackColor = true;
-        // 
-        // excelButton
-        // 
-        excelButton.Location = new System.Drawing.Point(442, 37);
-        excelButton.Name = "excelButton";
-        excelButton.Size = new System.Drawing.Size(75, 23);
-        excelButton.TabIndex = 7;
-        excelButton.Text = "Excel";
-        excelButton.UseVisualStyleBackColor = true;
-        excelButton.Click += excelButton_Click;
-        // 
         // MainForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -460,8 +463,8 @@ partial class MainForm
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label5;
-    private System.Windows.Forms.DateTimePicker dateTimePicker1;
-    private System.Windows.Forms.DateTimePicker dateTimePicker2;
+    private System.Windows.Forms.DateTimePicker fromDatePicker;
+    private System.Windows.Forms.DateTimePicker toDatePicker;
     private System.Windows.Forms.GroupBox groupBox3;
 
     private System.Windows.Forms.GroupBox filterGroupBox;
@@ -471,9 +474,9 @@ partial class MainForm
 
     private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.GroupBox statisticsGroupBox;
-    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.TextBox countInput;
     private System.Windows.Forms.DataGridView dataGridView1;
-    private System.Windows.Forms.ComboBox comboBox1;
+    private System.Windows.Forms.ComboBox statisticsSelect;
 
     private System.Windows.Forms.Label label1;
 
