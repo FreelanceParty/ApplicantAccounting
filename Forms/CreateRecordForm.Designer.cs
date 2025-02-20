@@ -444,7 +444,7 @@ partial class CreateRecordForm
         Controls.Add(educationSelect);
         Controls.Add(button2);
         Controls.Add(label10);
-        Text = "CreateRecord";
+        Text = "Створити запис";
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
         groupBox2.ResumeLayout(false);

@@ -14,6 +14,7 @@ public partial class CreateRecordForm : Form
         InitializeComponent();
         if (record != null)
         {
+            Text = "Редагувати запис";
             button2.Text = "Редагувати";
         }
 
