@@ -20,7 +20,8 @@ public class RecordFactory
         bool withCourses,
         bool withBenefits,
         int specializationTypeId,
-        DateTime submissionDate
+        DateTime submissionDate,
+        string notes
     )
     {
         var newRecord = new Record()
@@ -41,6 +42,7 @@ public class RecordFactory
             Benefits = withBenefits,
             SpecializationTypeId = specializationTypeId,
             SubmissionDate = submissionDate,
+            Notes = notes
         };
         using var context = new AppDbContext();
         var record = context.Records.FirstOrDefault(r =>
@@ -59,7 +61,8 @@ public class RecordFactory
             r.Courses == newRecord.Courses &&
             r.Benefits == newRecord.Benefits &&
             r.SpecializationTypeId == newRecord.SpecializationTypeId &&
-            r.SubmissionDate == newRecord.SubmissionDate
+            r.SubmissionDate == newRecord.SubmissionDate &&
+            r.Notes == newRecord.Notes
         );
         if (record != null)
         {
@@ -89,7 +92,9 @@ public class RecordFactory
         bool withCourses,
         bool withBenefits,
         int specializationTypeId,
+        string notes,
         DateTime? submissionDate = null
+        
     )
     {
         using var context = new AppDbContext();
@@ -108,6 +113,7 @@ public class RecordFactory
         record.Courses = withCourses;
         record.Benefits = withBenefits;
         record.SpecializationTypeId = specializationTypeId;
+        record.Notes = notes;
         if (submissionDate != null)
         {
             record.SubmissionDate = (DateTime)submissionDate;

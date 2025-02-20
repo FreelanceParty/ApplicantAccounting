@@ -36,6 +36,7 @@ public class RecordSeeder(AppDbContext context)
             RegistrationСertificate = faker.Random.String2(6),
             SpecializationTypeId = faker.Random.Int(0, SpecializationType.GetAll().Count - 1),
             SubmissionDate = faker.Date.Past(2),
+            Notes = faker.Lorem.Sentence(),
         };
     }
 

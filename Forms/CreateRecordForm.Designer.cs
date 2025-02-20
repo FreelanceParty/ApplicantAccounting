@@ -51,6 +51,8 @@ partial class CreateRecordForm
         educationSelect = new System.Windows.Forms.ComboBox();
         label10 = new System.Windows.Forms.Label();
         groupBox1 = new System.Windows.Forms.GroupBox();
+        birthDatePicker = new System.Windows.Forms.DateTimePicker();
+        label11 = new System.Windows.Forms.Label();
         groupBox2 = new System.Windows.Forms.GroupBox();
         localityInput = new System.Windows.Forms.TextBox();
         label5 = new System.Windows.Forms.Label();
@@ -65,8 +67,8 @@ partial class CreateRecordForm
         mgRadio = new System.Windows.Forms.RadioButton();
         mtRadio = new System.Windows.Forms.RadioButton();
         kiRadio = new System.Windows.Forms.RadioButton();
-        label11 = new System.Windows.Forms.Label();
-        birthDatePicker = new System.Windows.Forms.DateTimePicker();
+        notesInput = new System.Windows.Forms.TextBox();
+        label12 = new System.Windows.Forms.Label();
         groupBox1.SuspendLayout();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
@@ -243,6 +245,22 @@ partial class CreateRecordForm
         groupBox1.TabStop = false;
         groupBox1.Text = "Основна інформація";
         // 
+        // birthDatePicker
+        // 
+        birthDatePicker.Location = new System.Drawing.Point(119, 138);
+        birthDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+        birthDatePicker.Name = "birthDatePicker";
+        birthDatePicker.Size = new System.Drawing.Size(170, 23);
+        birthDatePicker.TabIndex = 17;
+        // 
+        // label11
+        // 
+        label11.Location = new System.Drawing.Point(13, 144);
+        label11.Name = "label11";
+        label11.Size = new System.Drawing.Size(100, 23);
+        label11.TabIndex = 16;
+        label11.Text = "Дата народження";
+        // 
         // groupBox2
         // 
         groupBox2.Controls.Add(localityInput);
@@ -394,27 +412,28 @@ partial class CreateRecordForm
         kiRadio.Text = "КІ";
         kiRadio.UseVisualStyleBackColor = true;
         // 
-        // label11
+        // notesInput
         // 
-        label11.Location = new System.Drawing.Point(13, 144);
-        label11.Name = "label11";
-        label11.Size = new System.Drawing.Size(100, 23);
-        label11.TabIndex = 16;
-        label11.Text = "Дата народження";
+        notesInput.Location = new System.Drawing.Point(131, 349);
+        notesInput.Name = "notesInput";
+        notesInput.Size = new System.Drawing.Size(170, 23);
+        notesInput.TabIndex = 35;
         // 
-        // birthDatePicker
+        // label12
         // 
-        birthDatePicker.Location = new System.Drawing.Point(119, 138);
-        birthDatePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-        birthDatePicker.Name = "birthDatePicker";
-        birthDatePicker.Size = new System.Drawing.Size(170, 23);
-        birthDatePicker.TabIndex = 17;
+        label12.Location = new System.Drawing.Point(25, 352);
+        label12.Name = "label12";
+        label12.Size = new System.Drawing.Size(100, 23);
+        label12.TabIndex = 36;
+        label12.Text = "Примітки";
         // 
         // CreateRecordForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(628, 365);
+        ClientSize = new System.Drawing.Size(628, 384);
+        Controls.Add(label12);
+        Controls.Add(notesInput);
         Controls.Add(specializationGroupBox);
         Controls.Add(coursesCheckbox);
         Controls.Add(benefitsCheckbox);
@@ -434,7 +453,12 @@ partial class CreateRecordForm
         groupBox3.PerformLayout();
         specializationGroupBox.ResumeLayout(false);
         ResumeLayout(false);
+        PerformLayout();
     }
+
+    private System.Windows.Forms.Label label12;
+
+    private System.Windows.Forms.TextBox notesInput;
 
     private System.Windows.Forms.Label label11;
     private System.Windows.Forms.DateTimePicker birthDatePicker;

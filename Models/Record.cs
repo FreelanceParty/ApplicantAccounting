@@ -21,6 +21,7 @@ public class Record
     public bool Benefits { get; set; }
     public int SpecializationTypeId { get; set; }
     public DateTime SubmissionDate { get; set; }
+    public string Notes { get; set; }
 
     public static Dictionary<string, string> GetColumns()
     {
@@ -43,6 +44,7 @@ public class Record
             { "benefits", "Пільги" },
             { "specialization", "Спеціальність" },
             { "submissionDate", "Дата подачі" },
+            { "notes", "Примітки"},
         };
     }
 
@@ -67,6 +69,7 @@ public class Record
             { "benefits", Benefits ? "Так" : "Ні" },
             { "specialization", SpecializationType.GetAll()[SpecializationTypeId] },
             { "submissionDate", SubmissionDate.ToString("dd.MM.yyyy") },
+            { "notes", Notes },
         };
     }
 }

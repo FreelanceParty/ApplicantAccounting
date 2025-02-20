@@ -45,7 +45,8 @@ public partial class CreateRecordForm : Form
                 dormitoryCheckbox.Checked,
                 coursesCheckbox.Checked,
                 benefitsCheckbox.Checked,
-                int.Parse(checkedSpecializationRadio.Tag.ToString())
+                int.Parse(checkedSpecializationRadio.Tag.ToString()),
+                notesInput.Text
             );
         }
         else
@@ -66,7 +67,8 @@ public partial class CreateRecordForm : Form
                 coursesCheckbox.Checked,
                 benefitsCheckbox.Checked,
                 int.Parse(checkedSpecializationRadio.Tag.ToString()),
-                DateTime.Now
+                DateTime.Now,
+                notesInput.Text
             );
         }
 
@@ -121,6 +123,7 @@ public partial class CreateRecordForm : Form
             passportInput.Text = _record.PassportNumber;
             idCodeInput.Text = _record.IdCode;
             regCertifInput.Text = _record.RegistrationСertificate;
+            notesInput.Text = _record.Notes;
         }
     }
 }
