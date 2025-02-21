@@ -159,6 +159,7 @@ partial class MainForm
         printButton.TabIndex = 6;
         printButton.Text = "Друк";
         printButton.UseVisualStyleBackColor = true;
+        printButton.Click += printButton_Click;
         // 
         // statisticsSelect
         // 

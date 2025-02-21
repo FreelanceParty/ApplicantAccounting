@@ -1,6 +1,7 @@
 using ApplicantAccounting.Models;
 using ApplicantAccounting.Models.Controllers;
 using ApplicantAccounting.ValueObjects;
+using ApplicantAccounting.ValueObjects.Constants;
 using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
 
@@ -141,5 +142,11 @@ public partial class MainForm : Form
 
             dataGridView1.Rows.Add(row);
         }
+    }
+
+    private void printButton_Click(object sender, EventArgs e)
+    {
+        var printer = new DataGridViewPrinter(dataGridView1);
+        printer.Print();
     }
 }

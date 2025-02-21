@@ -1,4 +1,4 @@
-﻿using ApplicantAccounting.ValueObjects;
+﻿using ApplicantAccounting.ValueObjects.Constants;
 
 namespace ApplicantAccounting.Models;
 

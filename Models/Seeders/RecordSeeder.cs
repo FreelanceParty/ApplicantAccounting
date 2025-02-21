@@ -1,4 +1,4 @@
-﻿using ApplicantAccounting.ValueObjects;
+﻿using ApplicantAccounting.ValueObjects.Constants;
 using Bogus;
 
 namespace ApplicantAccounting.Models.Seeders;

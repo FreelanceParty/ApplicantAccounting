@@ -1,6 +1,6 @@
 ﻿using ApplicantAccounting.Models;
 using ApplicantAccounting.Models.Factories;
-using ApplicantAccounting.ValueObjects;
+using ApplicantAccounting.ValueObjects.Constants;
 
 namespace ApplicantAccounting.Forms;
 

@@ -1,4 +1,4 @@
-﻿namespace ApplicantAccounting.ValueObjects;
+﻿namespace ApplicantAccounting.ValueObjects.Constants;
 
 public static class GenderType
 {
