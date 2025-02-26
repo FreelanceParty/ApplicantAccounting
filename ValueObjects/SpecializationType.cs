@@ -21,4 +21,15 @@ public static class SpecializationType
             { FB, "ФБ" },
         };
     }
+
+    public static string[] GetTitles(int[] ids)
+    {
+        string[] titles = new string[ids.Length];
+        for (int i = 0; i < ids.Length; i++)
+        {
+            titles[i] = GetAll()[ids[i]];
+        }
+
+        return titles;
+    }
 }

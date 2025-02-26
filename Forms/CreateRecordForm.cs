@@ -19,15 +19,18 @@ public partial class CreateRecordForm : Form
         }
 
         FillSelectsWithValues();
+        FillCheckboxesWithValues();
         ChooseDefaultValues();
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-        var checkedSpecializationRadio = specializationGroupBox.Controls
-            .OfType<RadioButton>()
-            .First(cb => cb.Checked);
-
+        var checkedSpecializations = specializationGroupBox.Controls
+            .OfType<CheckBox>()
+            .Where(cb => cb.Checked)
+            .Select(cb => int.Parse(cb.Tag.ToString()))
+            .ToArray();
+        
         if (_record != null)
         {
             RecordFactory.Update(
@@ -46,7 +49,7 @@ public partial class CreateRecordForm : Form
                 dormitoryCheckbox.Checked,
                 coursesCheckbox.Checked,
                 benefitsCheckbox.Checked,
-                int.Parse(checkedSpecializationRadio.Tag.ToString()),
+                checkedSpecializations,
                 notesInput.Text
             );
         }
@@ -67,7 +70,7 @@ public partial class CreateRecordForm : Form
                 dormitoryCheckbox.Checked,
                 coursesCheckbox.Checked,
                 benefitsCheckbox.Checked,
-                int.Parse(checkedSpecializationRadio.Tag.ToString()),
+                checkedSpecializations,
                 DateTime.Now,
                 notesInput.Text
             );
@@ -94,13 +97,22 @@ public partial class CreateRecordForm : Form
         genderSelect.ValueMember = "Key";
     }
 
+    private void FillCheckboxesWithValues()
+    {
+        kiCheckbox.Tag = SpecializationType.KI;
+        mtCheckbox.Tag = SpecializationType.MT;
+        mgCheckbox.Tag = SpecializationType.MG;
+        grsCheckbox.Tag = SpecializationType.GRS;
+        ptbCheckbox.Tag = SpecializationType.PTB;
+        fbCheckbox.Tag = SpecializationType.FB;
+    }
+
     private void ChooseDefaultValues()
     {
         if (_record == null)
         {
             genderSelect.SelectedIndex = 0;
             educationSelect.SelectedIndex = 0;
-            kiRadio.Checked = true;
         }
         else
         {
@@ -112,9 +124,9 @@ public partial class CreateRecordForm : Form
             localityInput.Text = _record.Locality;
             addressInput.Text = _record.Address;
 
-            specializationGroupBox.Controls.OfType<RadioButton>()
-                .First(rb => rb.Tag?.ToString() == _record.SpecializationTypeId.ToString())
-                .Checked = true;
+            specializationGroupBox.Controls.OfType<CheckBox>()
+                                                .First(rb => _record.SpecializationTypeIds.Contains(int.Parse(rb.Tag.ToString())))
+                                                .Checked = true;
             educationSelect.SelectedIndex = _record.EducationTypeId;
 
             dormitoryCheckbox.Checked = _record.Dormitory;

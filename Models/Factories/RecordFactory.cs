@@ -19,7 +19,7 @@ public class RecordFactory
         bool withDormitory,
         bool withCourses,
         bool withBenefits,
-        int specializationTypeId,
+        int[] specializationTypeIds,
         DateTime submissionDate,
         string notes
     )
@@ -40,7 +40,7 @@ public class RecordFactory
             Dormitory = withDormitory,
             Courses = withCourses,
             Benefits = withBenefits,
-            SpecializationTypeId = specializationTypeId,
+            SpecializationTypeIds = specializationTypeIds,
             SubmissionDate = submissionDate,
             Notes = notes
         };
@@ -60,7 +60,7 @@ public class RecordFactory
             r.Dormitory == newRecord.Dormitory &&
             r.Courses == newRecord.Courses &&
             r.Benefits == newRecord.Benefits &&
-            r.SpecializationTypeId == newRecord.SpecializationTypeId &&
+            r.SpecializationTypeIds == newRecord.SpecializationTypeIds &&
             r.SubmissionDate == newRecord.SubmissionDate &&
             r.Notes == newRecord.Notes
         );
@@ -91,7 +91,7 @@ public class RecordFactory
         bool withDormitory,
         bool withCourses,
         bool withBenefits,
-        int specializationTypeId,
+        int[] specializationTypeIds,
         string notes,
         DateTime? submissionDate = null
         
@@ -112,7 +112,7 @@ public class RecordFactory
         record.Dormitory = withDormitory;
         record.Courses = withCourses;
         record.Benefits = withBenefits;
-        record.SpecializationTypeId = specializationTypeId;
+        record.SpecializationTypeIds = specializationTypeIds;
         record.Notes = notes;
         if (submissionDate != null)
         {

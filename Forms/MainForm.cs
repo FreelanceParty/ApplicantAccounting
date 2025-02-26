@@ -31,12 +31,12 @@ public partial class MainForm : Form
             { dormitoryRadio, record => record.Dormitory },
             { coursesRadio, record => record.Courses },
             { benefitsRadio, record => record.Benefits },
-            { kiRado, record => record.SpecializationTypeId == SpecializationType.KI },
-            { mtRadio, record => record.SpecializationTypeId == SpecializationType.MT },
-            { mgRadio, record => record.SpecializationTypeId == SpecializationType.MG },
-            { grsRadio, record => record.SpecializationTypeId == SpecializationType.GRS },
-            { ptbRadio, record => record.SpecializationTypeId == SpecializationType.PTB },
-            { fbRadio, record => record.SpecializationTypeId == SpecializationType.FB },
+            { kiRado, record => record.SpecializationTypeIds.Contains(SpecializationType.KI) },
+            { mtRadio, record => record.SpecializationTypeIds.Contains(SpecializationType.MT) },
+            { mgRadio, record => record.SpecializationTypeIds.Contains(SpecializationType.MG) },
+            { grsRadio, record => record.SpecializationTypeIds.Contains(SpecializationType.GRS) },
+            { ptbRadio, record => record.SpecializationTypeIds.Contains(SpecializationType.PTB) },
+            { fbRadio, record => record.SpecializationTypeIds.Contains(SpecializationType.FB) },
         };
 
         var predicate = predicates.FirstOrDefault(pair => pair.Key.Checked).Value ?? (_ => true);
@@ -63,9 +63,9 @@ public partial class MainForm : Form
             CreateRecordForm form = new CreateRecordForm(record);
             form.Show();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            MessageBox.Show("Такого запису не існує");
+            MessageBox.Show(ex.Message);
         }
     }
 

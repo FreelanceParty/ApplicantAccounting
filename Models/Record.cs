@@ -19,7 +19,7 @@ public class Record
     public bool Dormitory { get; set; }
     public bool Courses { get; set; }
     public bool Benefits { get; set; }
-    public int SpecializationTypeId { get; set; }
+    public int[] SpecializationTypeIds { get; set; }
     public DateTime SubmissionDate { get; set; }
     public string Notes { get; set; }
 
@@ -44,7 +44,7 @@ public class Record
             { "benefits", "Пільги" },
             { "specialization", "Спеціальність" },
             { "submissionDate", "Дата подачі" },
-            { "notes", "Примітки"},
+            { "notes", "Примітки" },
         };
     }
 
@@ -67,7 +67,7 @@ public class Record
             { "dormitory", Dormitory ? "Так" : "Ні" },
             { "courses", Courses ? "Так" : "Ні" },
             { "benefits", Benefits ? "Так" : "Ні" },
-            { "specialization", SpecializationType.GetAll()[SpecializationTypeId] },
+            { "specialization", string.Join(", ", SpecializationType.GetTitles(SpecializationTypeIds)) },
             { "submissionDate", SubmissionDate.ToString("dd.MM.yyyy") },
             { "notes", Notes },
         };

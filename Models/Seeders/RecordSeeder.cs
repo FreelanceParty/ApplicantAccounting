@@ -34,7 +34,7 @@ public class RecordSeeder(AppDbContext context)
             PassportNumber = faker.Random.String2(6),
             IdCode = faker.Random.String2(6),
             RegistrationСertificate = faker.Random.String2(6),
-            SpecializationTypeId = faker.Random.Int(0, SpecializationType.GetAll().Count - 1),
+            SpecializationTypeIds = [faker.Random.Int(0, SpecializationType.GetAll().Count - 1)],
             SubmissionDate = faker.Date.Past(2),
             Notes = faker.Lorem.Sentence(),
         };

@@ -90,7 +90,6 @@ partial class MainForm
         groupBox1.Size = new System.Drawing.Size(282, 115);
         groupBox1.TabIndex = 1;
         groupBox1.TabStop = false;
-        groupBox1.Text = "groupBox1";
         // 
         // recordIdInput
         // 

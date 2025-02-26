@@ -61,12 +61,12 @@ partial class CreateRecordForm
         benefitsCheckbox = new System.Windows.Forms.CheckBox();
         coursesCheckbox = new System.Windows.Forms.CheckBox();
         specializationGroupBox = new System.Windows.Forms.GroupBox();
-        fbRadio = new System.Windows.Forms.RadioButton();
-        ptbRadio = new System.Windows.Forms.RadioButton();
-        grsRadio = new System.Windows.Forms.RadioButton();
-        mgRadio = new System.Windows.Forms.RadioButton();
-        mtRadio = new System.Windows.Forms.RadioButton();
-        kiRadio = new System.Windows.Forms.RadioButton();
+        fbCheckbox = new System.Windows.Forms.CheckBox();
+        ptbCheckbox = new System.Windows.Forms.CheckBox();
+        grsCheckbox = new System.Windows.Forms.CheckBox();
+        mgCheckbox = new System.Windows.Forms.CheckBox();
+        mtCheckbox = new System.Windows.Forms.CheckBox();
+        kiCheckbox = new System.Windows.Forms.CheckBox();
         notesInput = new System.Windows.Forms.TextBox();
         label12 = new System.Windows.Forms.Label();
         groupBox1.SuspendLayout();
@@ -122,7 +122,7 @@ partial class CreateRecordForm
         // 
         // button2
         // 
-        button2.Location = new System.Drawing.Point(486, 322);
+        button2.Location = new System.Drawing.Point(486, 374);
         button2.Name = "button2";
         button2.Size = new System.Drawing.Size(121, 30);
         button2.TabIndex = 8;
@@ -333,12 +333,12 @@ partial class CreateRecordForm
         // 
         // specializationGroupBox
         // 
-        specializationGroupBox.Controls.Add(fbRadio);
-        specializationGroupBox.Controls.Add(ptbRadio);
-        specializationGroupBox.Controls.Add(grsRadio);
-        specializationGroupBox.Controls.Add(mgRadio);
-        specializationGroupBox.Controls.Add(mtRadio);
-        specializationGroupBox.Controls.Add(kiRadio);
+        specializationGroupBox.Controls.Add(fbCheckbox);
+        specializationGroupBox.Controls.Add(ptbCheckbox);
+        specializationGroupBox.Controls.Add(grsCheckbox);
+        specializationGroupBox.Controls.Add(mgCheckbox);
+        specializationGroupBox.Controls.Add(mtCheckbox);
+        specializationGroupBox.Controls.Add(kiCheckbox);
         specializationGroupBox.Location = new System.Drawing.Point(320, 142);
         specializationGroupBox.Name = "specializationGroupBox";
         specializationGroupBox.Size = new System.Drawing.Size(298, 83);
@@ -346,84 +346,73 @@ partial class CreateRecordForm
         specializationGroupBox.TabStop = false;
         specializationGroupBox.Text = "Спеціальність";
         // 
-        // fbRadio
+        // fbCheckbox
         // 
-        fbRadio.Location = new System.Drawing.Point(210, 52);
-        fbRadio.Name = "fbRadio";
-        fbRadio.Size = new System.Drawing.Size(77, 24);
-        fbRadio.TabIndex = 5;
-        fbRadio.TabStop = true;
-        fbRadio.Tag = "5";
-        fbRadio.Text = "ФБ";
-        fbRadio.UseVisualStyleBackColor = true;
+        fbCheckbox.Location = new System.Drawing.Point(210, 46);
+        fbCheckbox.Name = "fbCheckbox";
+        fbCheckbox.Size = new System.Drawing.Size(77, 24);
+        fbCheckbox.TabIndex = 11;
+        fbCheckbox.Text = "ФБ";
+        fbCheckbox.UseVisualStyleBackColor = true;
         // 
-        // ptbRadio
+        // ptbCheckbox
         // 
-        ptbRadio.Location = new System.Drawing.Point(114, 52);
-        ptbRadio.Name = "ptbRadio";
-        ptbRadio.Size = new System.Drawing.Size(77, 24);
-        ptbRadio.TabIndex = 4;
-        ptbRadio.TabStop = true;
-        ptbRadio.Tag = "4";
-        ptbRadio.Text = "ПТБ";
-        ptbRadio.UseVisualStyleBackColor = true;
+        ptbCheckbox.Location = new System.Drawing.Point(114, 46);
+        ptbCheckbox.Name = "ptbCheckbox";
+        ptbCheckbox.Size = new System.Drawing.Size(77, 24);
+        ptbCheckbox.TabIndex = 10;
+        ptbCheckbox.Text = "ПТБ";
+        ptbCheckbox.UseVisualStyleBackColor = true;
         // 
-        // grsRadio
+        // grsCheckbox
         // 
-        grsRadio.Location = new System.Drawing.Point(11, 52);
-        grsRadio.Name = "grsRadio";
-        grsRadio.Size = new System.Drawing.Size(77, 24);
-        grsRadio.TabIndex = 3;
-        grsRadio.TabStop = true;
-        grsRadio.Tag = "3";
-        grsRadio.Text = "ГРС";
-        grsRadio.UseVisualStyleBackColor = true;
+        grsCheckbox.Location = new System.Drawing.Point(11, 46);
+        grsCheckbox.Name = "grsCheckbox";
+        grsCheckbox.Size = new System.Drawing.Size(77, 24);
+        grsCheckbox.TabIndex = 9;
+        grsCheckbox.Text = "ГРС";
+        grsCheckbox.UseVisualStyleBackColor = true;
         // 
-        // mgRadio
+        // mgCheckbox
         // 
-        mgRadio.Location = new System.Drawing.Point(210, 22);
-        mgRadio.Name = "mgRadio";
-        mgRadio.Size = new System.Drawing.Size(77, 24);
-        mgRadio.TabIndex = 2;
-        mgRadio.TabStop = true;
-        mgRadio.Tag = "2";
-        mgRadio.Text = "МГ";
-        mgRadio.UseVisualStyleBackColor = true;
+        mgCheckbox.Location = new System.Drawing.Point(210, 22);
+        mgCheckbox.Name = "mgCheckbox";
+        mgCheckbox.Size = new System.Drawing.Size(77, 24);
+        mgCheckbox.TabIndex = 8;
+        mgCheckbox.Text = "МГ";
+        mgCheckbox.UseVisualStyleBackColor = true;
         // 
-        // mtRadio
+        // mtCheckbox
         // 
-        mtRadio.Location = new System.Drawing.Point(114, 22);
-        mtRadio.Name = "mtRadio";
-        mtRadio.Size = new System.Drawing.Size(77, 24);
-        mtRadio.TabIndex = 1;
-        mtRadio.TabStop = true;
-        mtRadio.Tag = "1";
-        mtRadio.Text = "МТ";
-        mtRadio.UseVisualStyleBackColor = true;
+        mtCheckbox.Location = new System.Drawing.Point(114, 22);
+        mtCheckbox.Name = "mtCheckbox";
+        mtCheckbox.Size = new System.Drawing.Size(77, 24);
+        mtCheckbox.TabIndex = 7;
+        mtCheckbox.Text = "МТ";
+        mtCheckbox.UseVisualStyleBackColor = true;
         // 
-        // kiRadio
+        // kiCheckbox
         // 
-        kiRadio.Location = new System.Drawing.Point(11, 22);
-        kiRadio.Name = "kiRadio";
-        kiRadio.Size = new System.Drawing.Size(77, 24);
-        kiRadio.TabIndex = 0;
-        kiRadio.TabStop = true;
-        kiRadio.Tag = "0";
-        kiRadio.Text = "КІ";
-        kiRadio.UseVisualStyleBackColor = true;
+        kiCheckbox.Location = new System.Drawing.Point(11, 22);
+        kiCheckbox.Name = "kiCheckbox";
+        kiCheckbox.Size = new System.Drawing.Size(77, 24);
+        kiCheckbox.TabIndex = 6;
+        kiCheckbox.Text = "КІ";
+        kiCheckbox.UseVisualStyleBackColor = true;
         // 
         // notesInput
         // 
-        notesInput.Location = new System.Drawing.Point(131, 349);
+        notesInput.Location = new System.Drawing.Point(398, 296);
+        notesInput.Multiline = true;
         notesInput.Name = "notesInput";
-        notesInput.Size = new System.Drawing.Size(170, 23);
+        notesInput.Size = new System.Drawing.Size(209, 72);
         notesInput.TabIndex = 35;
         // 
         // label12
         // 
-        label12.Location = new System.Drawing.Point(25, 352);
+        label12.Location = new System.Drawing.Point(331, 299);
         label12.Name = "label12";
-        label12.Size = new System.Drawing.Size(100, 23);
+        label12.Size = new System.Drawing.Size(61, 23);
         label12.TabIndex = 36;
         label12.Text = "Примітки";
         // 
@@ -431,7 +420,7 @@ partial class CreateRecordForm
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(628, 384);
+        ClientSize = new System.Drawing.Size(628, 416);
         Controls.Add(label12);
         Controls.Add(notesInput);
         Controls.Add(specializationGroupBox);
@@ -456,6 +445,14 @@ partial class CreateRecordForm
         PerformLayout();
     }
 
+    private System.Windows.Forms.CheckBox kiCheckbox;
+    private System.Windows.Forms.CheckBox mtCheckbox;
+    private System.Windows.Forms.CheckBox mgCheckbox;
+    private System.Windows.Forms.CheckBox ptbCheckbox;
+    private System.Windows.Forms.CheckBox grsCheckbox;
+
+    private System.Windows.Forms.CheckBox fbCheckbox;
+
     private System.Windows.Forms.Label label12;
 
     private System.Windows.Forms.TextBox notesInput;
@@ -467,12 +464,6 @@ partial class CreateRecordForm
     private System.Windows.Forms.Label label5;
 
     private System.Windows.Forms.GroupBox specializationGroupBox;
-    private System.Windows.Forms.RadioButton kiRadio;
-    private System.Windows.Forms.RadioButton mtRadio;
-    private System.Windows.Forms.RadioButton mgRadio;
-    private System.Windows.Forms.RadioButton fbRadio;
-    private System.Windows.Forms.RadioButton ptbRadio;
-    private System.Windows.Forms.RadioButton grsRadio;
 
     private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.GroupBox groupBox2;
